@@ -60,6 +60,11 @@ public class InterestCalculatorGUI extends JFrame
 		});
 		panel.add( calcButton );
 		
+		//Set up the results label. This will hold the results of the interest calculations.
+		JLabel resultsLabel = new JLabel( "Results" );
+		resultsLabel.setBounds( 50, 180, 400, 200 );
+		panel.add( resultsLabel );
+		
 		//Set the main window parameters.
 		setTitle( "Interest Calculator" );
 		setSize( 600, 600 );
