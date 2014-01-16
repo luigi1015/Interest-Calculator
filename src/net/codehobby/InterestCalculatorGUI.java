@@ -9,6 +9,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JSpinner;
 import javax.swing.SpinnerNumberModel;
+import javax.swing.SwingConstants;
 import javax.swing.SwingUtilities;
 
 public class InterestCalculatorGUI extends JFrame
@@ -27,31 +28,42 @@ public class InterestCalculatorGUI extends JFrame
 		getContentPane().add( panel );
 		panel.setLayout(null);
 		
+		//Set up the Initial Deposit label and spinner.
+		//Initial Deposit rate label
+		JLabel initialDepositLabel = new JLabel( "Initial Deposit ($)" );
+		initialDepositLabel.setBounds( 50, 50, 120, 30 );
+		panel.add( initialDepositLabel );
+		//Initial Deposit rate spinner
+		SpinnerNumberModel initialDepositModel = new SpinnerNumberModel( 0, 0, 1000000, 0.01 );
+		JSpinner initialDepositModelSpinner = new JSpinner( initialDepositModel );
+		initialDepositModelSpinner.setBounds( 170, 50, 120, 30 );
+		panel.add( initialDepositModelSpinner );
+		
 		//Set up the Interest rate label and spinner.
 		//Interest rate label
 		JLabel interestRateLabel = new JLabel( "Interest Rate (%)" );
-		interestRateLabel.setBounds( 50, 50, 120, 30 );
+		interestRateLabel.setBounds( 50, 100, 120, 30 );
 		panel.add( interestRateLabel );
 		//Interest rate spinner
 		SpinnerNumberModel interestRateModel = new SpinnerNumberModel( 7, 1, 100, 1 );
 		JSpinner interestRateSpinner = new JSpinner( interestRateModel );
-		interestRateSpinner.setBounds( 170, 50, 120, 30 );
+		interestRateSpinner.setBounds( 170, 100, 120, 30 );
 		panel.add( interestRateSpinner );
 		
 		//Set up the Time label and spinner.
 		//Time label
 		JLabel timeLabel = new JLabel( "Time (years)" );
-		timeLabel.setBounds( 50, 100, 120, 30 );
+		timeLabel.setBounds( 50, 150, 120, 30 );
 		panel.add( timeLabel );
 		//Time spinner
 		SpinnerNumberModel timeModel = new SpinnerNumberModel( 30, 1, 100, 1 );
 		JSpinner timeSpinner = new JSpinner( timeModel );
-		timeSpinner.setBounds( 170, 100, 120, 30 );
+		timeSpinner.setBounds( 170, 150, 120, 30 );
 		panel.add( timeSpinner );
 		
 		//Set up the calculate button.
 		JButton calcButton = new JButton("Calculate");
-		calcButton.setBounds(50, 150, 120, 30);//Set the x,y coordinates and the width and height.
+		calcButton.setBounds(50, 200, 120, 30);//Set the x,y coordinates and the width and height.
 		calcButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e)
 			{//Just a placeholder function for now.
@@ -60,9 +72,14 @@ public class InterestCalculatorGUI extends JFrame
 		});
 		panel.add( calcButton );
 		
-		//Set up the results label. This will hold the results of the interest calculations.
-		JLabel resultsLabel = new JLabel( "Results" );
-		resultsLabel.setBounds( 50, 180, 400, 200 );
+		//Set up the results labels. These will hold the results of the interest calculations.
+		//Title label of the Results label.
+		JLabel resultsTitleLabel = new JLabel( "Results:" );
+		resultsTitleLabel.setBounds( 50, 240, 120, 30 );
+		panel.add( resultsTitleLabel );
+		JLabel resultsLabel = new JLabel( "Results go here." );
+		resultsLabel.setBounds( 50, 270, 400, 200 );
+		resultsLabel.setVerticalAlignment( SwingConstants.TOP );
 		panel.add( resultsLabel );
 		
 		//Set the main window parameters.
