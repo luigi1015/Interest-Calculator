@@ -31,15 +31,17 @@ public class InterestCalculator
 	public BigDecimal calculateValue( int cycle )
 	{//Calculates the value after cycle cycles and returns that.
 		BigDecimal value = new BigDecimal( "0" );//The accumulated value up to the accumulated cycle.
-		BigDecimal interest;//The interest accumulated this cycle.
+		BigDecimal interest = new BigDecimal( "0" );//The interest accumulated this cycle.
 		value.setScale( 2, BigDecimal.ROUND_HALF_UP );
+		interest.setScale( 2, BigDecimal.ROUND_HALF_UP );
 		value = value.add( initialDeposit );
 
 		for( int i = 0; i < cycle; i++ )
 		{
-			interest = value.multiply( percentInterest.divide( new BigDecimal("100") ) );
+			interest = value.multiply( percentInterest.divide( new BigDecimal("100"), 2, BigDecimal.ROUND_HALF_UP ) );
 			value = value.add( interest );
 		}
+
 		return value;
 	}
 }
