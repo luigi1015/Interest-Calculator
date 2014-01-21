@@ -20,20 +20,20 @@ public class InterestCalculatorGUI extends JFrame
 	private static final long serialVersionUID = 2352202239702195655L;//Automatically generated ID for the class.
 
 	//UI Objects
-	JPanel panel;
-	JLabel initialDepositLabel;
-	SpinnerNumberModel initialDepositModel;
-	JSpinner initialDepositSpinner;
-	JLabel interestRateLabel;
-	SpinnerNumberModel interestRateModel;
-	JSpinner interestRateSpinner;
-	JLabel timeLabel;
-	SpinnerNumberModel timeModel;
-	JSpinner timeSpinner;
-	JButton calcButton;
-	JLabel resultsTitleLabel;
-	JTextArea resultsTextArea;
-	JScrollPane resultsScrollPane;
+	private JPanel panel;
+	private JLabel initialDepositLabel;
+	private SpinnerNumberModel initialDepositModel;
+	private JSpinner initialDepositSpinner;
+	private JLabel interestRateLabel;
+	private SpinnerNumberModel interestRateModel;
+	private JSpinner interestRateSpinner;
+	private JLabel timeLabel;
+	private SpinnerNumberModel timeModel;
+	private JSpinner timeSpinner;
+	private JButton calcButton;
+	private JLabel resultsTitleLabel;
+	private JTextArea resultsTextArea;
+	private JScrollPane resultsScrollPane;
 	
 	public InterestCalculatorGUI()
 	{
@@ -53,7 +53,7 @@ public class InterestCalculatorGUI extends JFrame
 		initialDepositLabel.setBounds( 50, 50, 120, 30 );
 		panel.add( initialDepositLabel );
 		//Initial Deposit rate spinner
-		initialDepositModel = new SpinnerNumberModel( 0, 0, 1000000, 0.01 );
+		initialDepositModel = new SpinnerNumberModel( 100, 0, 1000000, 0.01 );
 		initialDepositSpinner = new JSpinner( initialDepositModel );
 		initialDepositSpinner.setBounds( 170, 50, 120, 30 );
 		panel.add( initialDepositSpinner );
