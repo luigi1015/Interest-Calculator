@@ -28,6 +28,36 @@ public class InterestCalculator
 		recurringDeposit.setScale( 2, BigDecimal.ROUND_HALF_UP );
 	}
 	
+	public BigDecimal getInitialDeposit()
+	{
+		return initialDeposit;
+	}
+	
+	public void setInitialDeposit( BigDecimal newInitialDeposit )
+	{
+		initialDeposit = newInitialDeposit;
+	}
+	
+	public BigDecimal getPercentInterest()
+	{
+		return percentInterest;
+	}
+	
+	public void setPercentInterest( BigDecimal newPercentInterest )
+	{
+		percentInterest = newPercentInterest;
+	}
+	
+	public BigDecimal getRecurringDeposit()
+	{
+		return recurringDeposit;
+	}
+	
+	public void setRecurringDeposit( BigDecimal newRecurringDeposit )
+	{
+		recurringDeposit = newRecurringDeposit;
+	}
+	
 	public BigDecimal calculateValue( int cycle )
 	{//Calculates the value after cycle cycles and returns that.
 		BigDecimal value = new BigDecimal( "0" );//The accumulated value up to the accumulated cycle.
@@ -38,6 +68,7 @@ public class InterestCalculator
 
 		for( int i = 0; i < cycle; i++ )
 		{
+			value = value.add( recurringDeposit );
 			interest = value.multiply( percentInterest.divide( new BigDecimal("100"), 2, BigDecimal.ROUND_HALF_UP ) );
 			value = value.add( interest );
 		}
